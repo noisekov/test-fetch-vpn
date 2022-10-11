@@ -1,3 +1,4 @@
+@import "./src/components/like-button/like-button.scss";
 //nullstyle
 *{padding: 0;margin: 0;border: 0;}
 *,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
@@ -131,16 +132,4 @@ img {
     display: flex;
     justify-content: center;
     margin-top: 80px;
-}
-.general__btn-like {
-    background: rgba(153, 153, 153, 0.2);
-    backdrop-filter: blur(2px);
-    width: 72px;
-    height: 72px;
-    margin: 0 auto;
-    &-position {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 }

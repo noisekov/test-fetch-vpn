@@ -1,0 +1,30 @@
+.like-button {
+    background: rgba(153, 153, 153, 0.2);
+    backdrop-filter: blur(2px);
+    width: 72px;
+    height: 72px;
+    margin: 0 auto;
+    cursor: pointer;
+    &:hover {
+        background: #F36A1D;
+    }
+    &:active {
+        background: #F36A1D;
+        opacity: 0.1;
+        backdrop-filter: blur(2px);
+    }
+    & svg {
+        fill: #727272;
+        &:hover {
+            fill: #F7AA7F;
+        }
+        &:active {
+            fill: #F36A1D;
+        }
+    }
+}
+.like-button-position {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
