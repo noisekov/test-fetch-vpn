@@ -73,7 +73,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @font-face {
   font-family: "NoirPro-BoldItalic";
-  src: url("/NoirPro-BoldItalic.f30db973.woff2") format("woff2"), url("/NoirPro-BoldItalic.a12c5fd6.woff") format("woff");
+  src: url("NoirPro-BoldItalic.f30db973.woff2") format("woff2"), url("NoirPro-BoldItalic.a12c5fd6.woff") format("woff");
   font-weight: bold;
   font-style: italic;
   font-display: swap;
