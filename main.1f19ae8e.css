@@ -1,3 +1,78 @@
+.like-button {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  background: rgba(153, 153, 153, 0.2);
+  backdrop-filter: blur(2px);
+  margin-left: -36px;
+  width: 72px;
+  height: 72px;
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.like-button:hover {
+  background: rgba(243, 106, 29, 0.1);
+}
+.like-button:hover svg {
+  fill: #F7AA7F;
+}
+.like-button:active {
+  background: transparent;
+}
+.like-button:active svg {
+  fill: #F36A1D;
+}
+.like-button:active:hover {
+  background: rgba(243, 106, 29, 0.1);
+}
+.like-button:disabled {
+  background: rgba(153, 153, 153, 0.2);
+  opacity: 0.3;
+  user-select: none;
+  pointer-events: none;
+}
+.like-button svg {
+  fill: #727272;
+}
+.like-button svg:active {
+  fill: #F36A1D;
+}
+
+.social-link {
+  position: absolute;
+  bottom: 40px;
+  right: 64px;
+  z-index: 4;
+}
+
+.social__items {
+  display: flex;
+}
+
+.social__item {
+  width: 44px;
+  height: 44px;
+  margin-right: 15px;
+}
+.social__item:last-child {
+  margin-right: 0;
+}
+
+.social__link {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: #727272;
+}
+.social__link:hover {
+  fill: #F36A1D;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -73,7 +148,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @font-face {
   font-family: "NoirPro-BoldItalic";
-  src: url("NoirPro-BoldItalic.f30db973.woff2") format("woff2"), url("NoirPro-BoldItalic.a12c5fd6.woff") format("woff");
+  src: url("/NoirPro-BoldItalic.f30db973.woff2") format("woff2"), url("/NoirPro-BoldItalic.a12c5fd6.woff") format("woff");
   font-weight: bold;
   font-style: italic;
   font-display: swap;
@@ -101,12 +176,12 @@ img {
   top: 0;
   left: 0;
   z-index: 2;
-  background-image: url("bmw-logo.bb116018.png");
+  background-image: url("/bmw-logo.bb116018.png");
   background-position: 100% 53px;
   background-size: 60px;
   background-repeat: no-repeat;
   border: 2px solid;
-  border-image-slice: 1;
+  border-image-slice: 0 0 1 0;
   border-image-source: linear-gradient(90deg, rgba(243, 106, 29, 0) 0%, #F36A1D 48.23%, rgba(243, 106, 29, 0) 99.27%);
 }
 .swiper::after {
@@ -192,19 +267,6 @@ img {
   display: flex;
   justify-content: center;
   margin-top: 80px;
-}
-
-.general__btn-like {
-  background: rgba(153, 153, 153, 0.2);
-  backdrop-filter: blur(2px);
-  width: 72px;
-  height: 72px;
-  margin: 0 auto;
-}
-.general__btn-like-position {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /*# sourceMappingURL=/main.1f19ae8e.css.map */

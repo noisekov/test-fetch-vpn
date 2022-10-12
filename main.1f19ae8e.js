@@ -189,10 +189,18 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./fonts\\NoirPro-BoldItalic.woff2":[["NoirPro-BoldItalic.f30db973.woff2","fonts/NoirPro-BoldItalic.woff2"],"fonts/NoirPro-BoldItalic.woff2"],"./fonts\\NoirPro-BoldItalic.woff":[["NoirPro-BoldItalic.a12c5fd6.woff","fonts/NoirPro-BoldItalic.woff"],"fonts/NoirPro-BoldItalic.woff"],"C:\\Users\\volod\\OneDrive\\Рабочий стол\\test work\\src\\images\\bmw-logo.png":[["bmw-logo.bb116018.png","images/bmw-logo.png"],"images/bmw-logo.png"],"_css_loader":"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"main.js":[function(require,module,exports) {
+},{"./fonts\\NoirPro-BoldItalic.woff2":[["NoirPro-BoldItalic.f30db973.woff2","fonts/NoirPro-BoldItalic.woff2"],"fonts/NoirPro-BoldItalic.woff2"],"./fonts\\NoirPro-BoldItalic.woff":[["NoirPro-BoldItalic.a12c5fd6.woff","fonts/NoirPro-BoldItalic.woff"],"fonts/NoirPro-BoldItalic.woff"],"C:\\Users\\volod\\OneDrive\\Рабочий стол\\test work\\src\\images\\bmw-logo.png":[["bmw-logo.bb116018.png","images/bmw-logo.png"],"images/bmw-logo.png"],"_css_loader":"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/like-button/like-button.js":[function(require,module,exports) {
+var likeBtn = document.querySelector('.like-button');
+likeBtn.addEventListener('click', function () {
+  likeBtn.setAttribute('disabled', '');
+});
+console.log(likeBtn);
+},{}],"main.js":[function(require,module,exports) {
 "use strict";
 
 require("./main.scss");
+
+require("./components/like-button/like-button");
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -265,7 +273,7 @@ request().then(function (result) {
 }).catch(function (err) {
   console.log("server err");
 });
-},{"./main.scss":"main.scss"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./main.scss":"main.scss","./components/like-button/like-button":"components/like-button/like-button.js"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -293,7 +301,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52437" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59281" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
