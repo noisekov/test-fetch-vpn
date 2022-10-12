@@ -148,7 +148,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @font-face {
   font-family: "NoirPro-BoldItalic";
-  src: url("/NoirPro-BoldItalic.f30db973.woff2") format("woff2"), url("/NoirPro-BoldItalic.a12c5fd6.woff") format("woff");
+  src: url("NoirPro-BoldItalic.f30db973.woff2") format("woff2"), url("NoirPro-BoldItalic.a12c5fd6.woff") format("woff");
   font-weight: bold;
   font-style: italic;
   font-display: swap;
@@ -176,7 +176,7 @@ img {
   top: 0;
   left: 0;
   z-index: 2;
-  background-image: url("/bmw-logo.bb116018.png");
+  background-image: url("bmw-logo.bb116018.png");
   background-position: 100% 53px;
   background-size: 60px;
   background-repeat: no-repeat;
