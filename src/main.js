@@ -1,5 +1,5 @@
 import './main.scss';
-
+import './components/like-button/like-button'
 const swiper = new Swiper('.swiper', {
     // Optional parameters
     direction: 'horizontal',

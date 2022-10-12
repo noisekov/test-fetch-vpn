@@ -16,7 +16,8 @@ html(lang="en")
                     path(opacity='0.4' d='M449.571 50C451.685 53.0212 450.571 66.1667 451.071 74.0001V98.0001C451.071 108.8 432.071 111.167 422.571 111C373.404 108.167 272.771 100 261.571 98.0001C247.571 95.5001 212.999 47.3243 220.571 41.5001C240.071 26.5 407.571 38 422.571 39C437.571 40 446.071 45 449.571 50Z' stroke='#BBBBBB' stroke-width='3')
                     path(opacity='0.4' d='M183 38.5L162.936 61.9549C153.455 73.0385 138.582 77.9053 124.383 74.5703L33.252 53.166C17.6914 49.5112 6.40401 36.0338 5.53659 20.0733L4.5 1' stroke='#C0C0C0' stroke-width='8')
                     path(opacity='0.4' d='M779 38.5L799.064 61.9549C808.545 73.0385 823.418 77.9053 837.617 74.5703L928.748 53.166C944.309 49.5112 955.596 36.0338 956.463 20.0733L957.5 1' stroke='#C0C0C0' stroke-width='8')
-            include /components/like-button/like-button.pug
+        include /components/like-button/like-button.pug
+        include /components/social-link/social-link.pug
         .swiper
             .swiper-wrapper
                 .swiper-slide 
@@ -27,5 +28,6 @@ html(lang="en")
                     .swiper-slide__img 
             .swiper-button-prev
             .swiper-button-next
+        include /components/modal/modal.pug
         script(src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js")
         script(src='./main.js')

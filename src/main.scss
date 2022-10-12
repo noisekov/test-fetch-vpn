@@ -1,4 +1,7 @@
 @import "./src/components/like-button/like-button.scss";
+@import "./src/components/social-link/social-link.scss";
+@import "./src/components/modal/modal.scss";
+
 //nullstyle
 *{padding: 0;margin: 0;border: 0;}
 *,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
@@ -50,7 +53,7 @@ img {
         background-size: 60px;
         background-repeat: no-repeat;
         border: 2px solid;
-        border-image-slice: 1;
+        border-image-slice: 0 0 1 0;
         border-image-source: linear-gradient(90deg, rgba(243, 106, 29, 0) 0%, #F36A1D 48.23%, rgba(243, 106, 29, 0) 99.27%);
     }
     &::after {
