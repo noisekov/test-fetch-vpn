@@ -1,9 +1,0 @@
-@font-face {
-    font-family: 'NoirPro';
-    src: url('NoirPro-BoldItalic.woff2') format('woff2'),
-        url('NoirPro-BoldItalic.woff') format('woff');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-}
-
