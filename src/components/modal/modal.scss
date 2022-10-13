@@ -21,6 +21,12 @@
     width: 543px;
     height: 470px;
     padding: 32px;
+    animation-name: slow;
+    animation-duration: 0.8s;
+}
+@keyframes slow {
+    0% {transform: translateY(100%);};
+    100% {transform: translateY(0%);};
 }
 .modal-close {
     position: absolute;
