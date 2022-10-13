@@ -73,6 +73,96 @@
   fill: #F36A1D;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+.modal.show {
+  display: flex;
+}
+
+.modal-window {
+  position: relative;
+  background: #393939;
+  width: 543px;
+  height: 470px;
+  padding: 32px;
+  animation-name: slow;
+  animation-duration: 0.8s;
+}
+
+@keyframes slow {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+.modal-close {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  display: block;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+}
+.modal-close::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: -5px;
+  display: block;
+  width: 35px;
+  height: 2px;
+  background: #F36A1D;
+  transform: rotate(-45deg);
+}
+.modal-close::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: -5px;
+  display: block;
+  width: 35px;
+  height: 2px;
+  background: #F36A1D;
+  transform: rotate(45deg);
+}
+
+.modal__title {
+  font-size: 32px;
+  letter-spacing: -0.05em;
+  color: #727272;
+  margin-bottom: 20px;
+}
+
+.modal__subtitle {
+  font-size: 20px;
+  line-height: 132.7%;
+  letter-spacing: -0.05em;
+  color: #727272;
+  margin-bottom: 30px;
+}
+
+.modal__text {
+  font-size: 20px;
+  line-height: 132.7%;
+  letter-spacing: -0.05em;
+  color: #FFFFFF;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -148,7 +238,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @font-face {
   font-family: "NoirPro-BoldItalic";
-  src: url("NoirPro-BoldItalic.f30db973.woff2") format("woff2"), url("NoirPro-BoldItalic.a12c5fd6.woff") format("woff");
+  src: url("/NoirPro-BoldItalic.f30db973.woff2") format("woff2"), url("/NoirPro-BoldItalic.a12c5fd6.woff") format("woff");
   font-weight: bold;
   font-style: italic;
   font-display: swap;
@@ -176,7 +266,7 @@ img {
   top: 0;
   left: 0;
   z-index: 2;
-  background-image: url("bmw-logo.bb116018.png");
+  background-image: url("/bmw-logo.bb116018.png");
   background-position: 100% 53px;
   background-size: 60px;
   background-repeat: no-repeat;
