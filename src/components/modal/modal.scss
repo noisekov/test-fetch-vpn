@@ -25,8 +25,8 @@
     animation-duration: 0.8s;
 }
 @keyframes slow {
-    0% {transform: translateY(100%);};
-    100% {transform: translateY(0%);};
+    0% {transform: translateY(100%)};
+    100% {transform: translateY(0%)};
 }
 .modal-close {
     position: absolute;
@@ -73,6 +73,7 @@
     margin-bottom: 30px;
 }
 .modal__text {
+    font-family: 'NoirPro-Light';
     font-size: 20px;
     line-height: 132.7%;
     letter-spacing: -0.05em;

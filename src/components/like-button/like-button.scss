@@ -1,10 +1,16 @@
-.like-button {
+.like {
     position: absolute;
     bottom: 5%;
     left: 50%;
+    margin-left: calc(-125px/2);
+    width: 125px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.like-button {
     background: rgba(153, 153, 153, 0.2);
     backdrop-filter: blur(2px);
-    margin-left: -36px;
     width: 72px;
     height: 72px;
     cursor: pointer;
@@ -12,6 +18,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 13px;
     &:hover {
         background: rgba(#F36A1D, 0.1);
         & svg {
@@ -39,4 +46,22 @@
             fill: #F36A1D;
         }
     }
+}
+.like-counter {
+    text-align: center;
+    display: flex;
+}
+.like-counter__text {
+    font-family: 'NoirPro-BoldItalic';
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: -0.05em;
+    color: #727272;
+}
+.like-counter__number {
+    font-family: 'NoirPro-BoldItalic';
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: -0.05em;
+    color: #F36A1D;
 }
