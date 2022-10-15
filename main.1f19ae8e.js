@@ -189,46 +189,79 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./fonts\\NoirPro-BoldItalic.woff2":[["NoirPro-BoldItalic.f30db973.woff2","fonts/NoirPro-BoldItalic.woff2"],"fonts/NoirPro-BoldItalic.woff2"],"./fonts\\NoirPro-BoldItalic.woff":[["NoirPro-BoldItalic.a12c5fd6.woff","fonts/NoirPro-BoldItalic.woff"],"fonts/NoirPro-BoldItalic.woff"],"C:\\Users\\volod\\OneDrive\\Рабочий стол\\test work\\src\\images\\bmw-logo.png":[["bmw-logo.bb116018.png","images/bmw-logo.png"],"images/bmw-logo.png"],"_css_loader":"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/modal/modal.js":[function(require,module,exports) {
+},{"./fonts\\NoirPro-BoldItalic.woff2":[["NoirPro-BoldItalic.f30db973.woff2","fonts/NoirPro-BoldItalic.woff2"],"fonts/NoirPro-BoldItalic.woff2"],"./fonts\\NoirPro-BoldItalic.woff":[["NoirPro-BoldItalic.a12c5fd6.woff","fonts/NoirPro-BoldItalic.woff"],"fonts/NoirPro-BoldItalic.woff"],"./fonts\\NoirPro-Light.woff2":[["NoirPro-Light.58f1eda6.woff2","fonts/NoirPro-Light.woff2"],"fonts/NoirPro-Light.woff2"],"./fonts\\NoirPro-Light.woff":[["NoirPro-Light.d380cb72.woff","fonts/NoirPro-Light.woff"],"fonts/NoirPro-Light.woff"],"./images\\bmw-logo.png":[["bmw-logo.bb116018.png","images/bmw-logo.png"],"images/bmw-logo.png"],"_css_loader":"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/modal/modal.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.modal = void 0;
+exports.modalTitle = exports.modalText = exports.modal = exports.body = void 0;
 var btnModalClose = document.querySelector('.modal-close');
+var body = document.querySelector('body');
+exports.body = body;
+var modal = document.querySelector('.modal');
+exports.modal = modal;
+var modalTitle = document.querySelector('.modal__title');
+exports.modalTitle = modalTitle;
+var modalText = document.querySelector('.modal__text');
+exports.modalText = modalText;
 btnModalClose.addEventListener('click', btnCloseModal);
 
 function btnCloseModal() {
   modal.classList.remove('show');
+  body.classList.remove('scroll-blocked');
 }
 
-var modal = document.querySelector('.modal');
-exports.modal = modal;
 modal.addEventListener('click', closeWithoutModalWindow);
 
 function closeWithoutModalWindow(evt) {
   if (!evt.target.closest('.modal-window')) {
     modal.classList.remove('show');
+    body.classList.remove('scroll-blocked');
   }
 }
 },{}],"components/like-button/like-button.js":[function(require,module,exports) {
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.likeCounter = void 0;
+
 var _modal = require("../modal/modal");
 
 var likeBtn = document.querySelector('.like-button');
+var likeCounter = document.querySelector('.like-counter__number');
+exports.likeCounter = likeCounter;
+//disabled button and add count like
 likeBtn.addEventListener('click', function () {
   likeBtn.setAttribute('disabled', '');
 
   _modal.modal.classList.add('show');
+
+  _modal.body.classList.add('scroll-blocked');
+
+  var result;
+  result = likeCounter.innerHTML;
+  +result++;
+  likeCounter.innerHTML = result;
+  localStorage.setItem('likeCount', result);
+}); //save like count
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (localStorage.getItem('likeCount', 'result')) {
+    likeCounter.innerHTML = localStorage.getItem('likeCount', 'result');
+    likeBtn.setAttribute('disabled', '');
+  }
 });
 },{"../modal/modal":"components/modal/modal.js"}],"main.js":[function(require,module,exports) {
 "use strict";
 
 require("./main.scss");
 
-require("./components/like-button/like-button");
+var _likeButton = require("./components/like-button/like-button");
+
+var _modal = require("./components/modal/modal");
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -241,7 +274,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
-  loop: true,
   speed: 1500,
   // spaceBetween: 100,
   // Navigation arrows
@@ -257,7 +289,7 @@ function request() {
 
 function _request() {
   _request = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    var response, result, data, getImg;
+    var response, result, data, getImg, getTitle, getDesc, getLikeCnt;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -274,12 +306,24 @@ function _request() {
             result = _context.sent;
             data = result.data;
             getImg = [];
+            getTitle = [];
+            getDesc = [];
+            getLikeCnt = [];
             data.forEach(function (element) {
               getImg.push(element.imgUrl);
             });
-            return _context.abrupt("return", getImg);
+            data.forEach(function (element) {
+              getTitle.push(element.title);
+            });
+            data.forEach(function (element) {
+              getDesc.push(element.desc);
+            });
+            data.forEach(function (element) {
+              getLikeCnt.push(element.likeCnt);
+            });
+            return _context.abrupt("return", [getImg, getTitle, getDesc, getLikeCnt]);
 
-          case 10:
+          case 16:
           case "end":
             return _context.stop();
         }
@@ -289,19 +333,24 @@ function _request() {
   return _request.apply(this, arguments);
 }
 
-var sliderForSwiper = document.querySelectorAll('.swiper-slide__img');
-var img = new Image();
-sliderForSwiper.forEach(function (elemImg) {
-  elemImg.append(img);
-});
+var imgForSwiper1 = document.querySelector('.swiper-slide__img-first img');
+var imgForSwiper2 = document.querySelector('.swiper-slide__img-second img');
+var imgForSwiper3 = document.querySelector('.swiper-slide__img-third img');
 request().then(function (result) {
-  result.forEach(function (res) {
-    return img.src = res;
-  });
+  //parse img 
+  imgForSwiper1.src = result[0][0];
+  imgForSwiper2.src = result[0][1];
+  imgForSwiper3.src = result[0][2]; //parse title into modalWindow
+
+  _modal.modalTitle.innerHTML = result[1][0]; //parse description into modalWindow
+
+  _modal.modalText.innerHTML = result[2][0]; //parse like count
+
+  _likeButton.likeCounter.innerHTML = result[3][0];
 }).catch(function (err) {
   console.log("server err");
 });
-},{"./main.scss":"main.scss","./components/like-button/like-button":"components/like-button/like-button.js"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./main.scss":"main.scss","./components/like-button/like-button":"components/like-button/like-button.js","./components/modal/modal":"components/modal/modal.js"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -329,7 +378,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53799" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55200" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
