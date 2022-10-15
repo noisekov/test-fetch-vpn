@@ -3,7 +3,8 @@
 @import "./src/components/modal/modal.scss";
 @import "./src/styles/nullstyle.scss";
 @import "./src/styles/fonts.scss";
-
+@import "./src/components/general/general.scss";
+@import "./src/components/swiper/swiper.scss";
 body {
     font-family: 'NoirPro-BoldItalic';
 }
@@ -14,104 +15,4 @@ img {
     width: 100%;
     height: 100vh;
     object-fit: cover;
-}
-.swiper {
-    width: 100%;
-    height: 100vh;
-    &::before {
-        content: "";
-        display: block;    
-        width: 95%;
-        height: 187px;    
-        position: absolute;
-        top: 0;      
-        left: 0;   
-        z-index: 2;
-        background-image: url("/images/bmw-logo.png");
-        background-position: 100% 53px;
-        background-size: 60px;
-        background-repeat: no-repeat;
-        border: 2px solid;
-        border-image-slice: 0 0 1 0;
-        border-image-source: linear-gradient(90deg, rgba(243, 106, 29, 0) 0%, #F36A1D 48.23%, rgba(243, 106, 29, 0) 99.27%);
-    }
-    &::after {
-        content: "";
-        display: block;    
-        width: 100%;
-        height: 100%;    
-        position: absolute;
-        top: 0;      
-        left: 0;   
-        background: radial-gradient(20.46% 33.99% at 0% 0%, #FF9254 0%, rgba(251, 188, 129, 0) 100%);
-        z-index: 1;
-    }
-}
-.swiper-button-prev {
-    color:#727272;
-    left: 64px;
-    &::before{
-        content: "";
-        width: 150px;
-        position: absolute;
-        top: 21px;
-        left: 5px;
-        height: 2px;
-        transform: matrix(-1, 0, 0, 1, 0, 0);
-        background: linear-gradient(90deg, rgba(153, 153, 153, 0) 0%, #727272 100%);
-    }
-    &:hover {
-        color: #F36A1D;
-    }
-    &:hover::before {
-        background: linear-gradient(90deg, rgba(153, 153, 153, 0) 0%, #F36A1D 100%);
-    }
-}
-.swiper-button-next {
-    color:#727272;
-    right: 64px;
-    &::before{
-        content: "";
-        width: 150px;
-        position: absolute;
-        top: 21px;
-        right: 5px;
-        height: 2px;
-        background: linear-gradient(90deg, rgba(153, 153, 153, 0) 0%, #727272 100%);
-    }
-    &:hover::before {
-        background: linear-gradient(90deg, rgba(153, 153, 153, 0) 0%, #F36A1D 100%);
-    }
-    &:hover{
-        color: #F36A1D;
-    }
-}
-.swiper-slide__img {
-    user-select: none;
-}
-.general {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background: #CFCFCF;
-}
-.general__header {
-    
-    height: 187px;
-    
-}
-.general__title {
-    display: flex;
-    justify-content: center;
-    font-size: 132px;
-    letter-spacing: -0.05em;
-    text-transform: uppercase;
-    color: #BEBEBE;
-}
-.general__img {
-    display: flex;
-    justify-content: center;
-    margin-top: 80px;
 }

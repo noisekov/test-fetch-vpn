@@ -1,8 +1,10 @@
 import {modal, body} from '../modal/modal';
 
 const likeBtn = document.querySelector('.like-button');
-const likeCounter = document.querySelector('.like-counter__number');
+let likeCounter = document.querySelector('.like-counter__number');
+export {likeCounter};
 
+//disabled button and add count like
 likeBtn.addEventListener('click', function(){
     likeBtn.setAttribute('disabled','');
     modal.classList.add('show');
@@ -13,6 +15,8 @@ likeBtn.addEventListener('click', function(){
     likeCounter.innerHTML = result;
     localStorage.setItem('likeCount', result)
 })
+
+//save like count
 document.addEventListener('DOMContentLoaded', function(){
     if (localStorage.getItem('likeCount', 'result')) {
         likeCounter.innerHTML = localStorage.getItem('likeCount', 'result');
