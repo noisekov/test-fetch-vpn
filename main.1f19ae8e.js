@@ -247,13 +247,12 @@ likeBtn.addEventListener('click', function () {
   likeCounter.innerHTML = result;
   localStorage.setItem('likeCount', result);
 }); //save like count
-
-document.addEventListener('DOMContentLoaded', function () {
-  if (localStorage.getItem('likeCount', 'result')) {
-    likeCounter.innerHTML = localStorage.getItem('likeCount', 'result');
-    likeBtn.setAttribute('disabled', '');
-  }
-});
+// document.addEventListener('DOMContentLoaded', function(){
+//     if (localStorage.getItem('likeCount', 'result')) {
+//         likeCounter.innerHTML = localStorage.getItem('likeCount', 'result');
+//         likeBtn.setAttribute('disabled','');
+//     }
+// })
 },{"../modal/modal":"components/modal/modal.js"}],"main.js":[function(require,module,exports) {
 "use strict";
 
@@ -275,7 +274,6 @@ var swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
   speed: 1500,
-  // spaceBetween: 100,
   // Navigation arrows
   navigation: {
     nextEl: '.swiper-button-next',
@@ -336,19 +334,41 @@ function _request() {
 var imgForSwiper1 = document.querySelector('.swiper-slide__img-first img');
 var imgForSwiper2 = document.querySelector('.swiper-slide__img-second img');
 var imgForSwiper3 = document.querySelector('.swiper-slide__img-third img');
+var swiperBreadCrumbs = document.querySelectorAll('.swiper-slide_breadcrumbs');
+var swiperName = document.querySelectorAll('.swiper-slide__name');
 request().then(function (result) {
   //parse img 
   imgForSwiper1.src = result[0][0];
   imgForSwiper2.src = result[0][1];
   imgForSwiper3.src = result[0][2]; //parse title into modalWindow
 
-  _modal.modalTitle.innerHTML = result[1][0]; //parse description into modalWindow
+  swiperName.forEach(function (nameSlider) {
+    if (nameSlider.outerText === 'THE RAZORITE') {
+      _modal.modalTitle.innerHTML = result[1][0]; //parse description into modalWindow
 
-  _modal.modalText.innerHTML = result[2][0]; //parse like count
+      _modal.modalText.innerHTML = result[2][0]; //parse like count
 
-  _likeButton.likeCounter.innerHTML = result[3][0];
+      _likeButton.likeCounter.innerHTML = result[3][0];
+    } // if (nameSlider.outerText === '02') {
+    //   modalTitle.innerHTML = result[1][1];
+    //   //parse description into modalWindow
+    //   modalText.innerHTML = result[2][1];
+    //   //parse like count
+    //   likeCounter.innerHTML = result[3][1];
+    // }
+
+  });
 }).catch(function (err) {
   console.log("server err");
+  swiperName.forEach(function (nameSlider) {
+    nameSlider.innerHTML = '02';
+  });
+  swiperBreadCrumbs.forEach(function (breadCrumbs) {
+    breadCrumbs.innerHTML = '/\///\///\///\///\///\///\/';
+  });
+  _likeButton.likeCounter.innerHTML = '330';
+  _modal.modalTitle.innerHTML = 'BMW i8';
+  _modal.modalText.innerHTML = 'Тут должен быть слайд. Но его нет. Вероятно у вас не включен VPN и данные не подгружаются с сервера.';
 });
 },{"./main.scss":"main.scss","./components/like-button/like-button":"components/like-button/like-button.js","./components/modal/modal":"components/modal/modal.js"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -378,7 +398,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55200" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62601" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

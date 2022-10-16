@@ -304,14 +304,14 @@ h1, h2, h3, h4, h5, h6 {
 
 @font-face {
   font-family: "NoirPro-BoldItalic";
-  src: url("NoirPro-BoldItalic.f30db973.woff2") format("woff2"), url("NoirPro-BoldItalic.a12c5fd6.woff") format("woff");
+  src: url("/NoirPro-BoldItalic.f30db973.woff2") format("woff2"), url("/NoirPro-BoldItalic.a12c5fd6.woff") format("woff");
   font-weight: bold;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "NoirPro-Light";
-  src: url("NoirPro-Light.58f1eda6.woff2") format("woff2"), url("NoirPro-Light.d380cb72.woff") format("woff");
+  src: url("/NoirPro-Light.58f1eda6.woff2") format("woff2"), url("/NoirPro-Light.d380cb72.woff") format("woff");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
@@ -323,17 +323,6 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   bottom: 0;
   background: #CFCFCF;
-}
-
-.container {
-  padding-left: 64px;
-  padding-right: 64px;
-}
-@media (max-width: 600px) {
-  .container {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
 }
 
 .general__header {
@@ -397,6 +386,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.05em;
   text-transform: uppercase;
   margin-top: 37px;
+  color: #727272;
 }
 @media (max-width: 600px) {
   .general_breadcrumbs {
@@ -417,7 +407,7 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   left: 0;
   z-index: 2;
-  background-image: url("bmw-logo.bb116018.png");
+  background-image: url("/bmw-logo.bb116018.png");
   background-position: 100% 53px;
   background-size: 60px;
   background-repeat: no-repeat;
@@ -526,6 +516,46 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 600px) {
   .swiper-slide img {
     object-position: 25%;
+  }
+}
+
+.swiper-slide__name {
+  position: absolute;
+  top: 28px;
+  left: 64px;
+  font-family: "NoirPro-BoldItalic";
+  font-size: 132px;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: #393939;
+}
+@media (max-width: 600px) {
+  .swiper-slide__name {
+    left: 16px;
+    top: 30px;
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: #393939;
+  }
+}
+
+.swiper-slide_breadcrumbs {
+  position: absolute;
+  top: 224px;
+  left: 64px;
+  font-family: "NoirPro-Light";
+  font-size: 20px;
+  line-height: 132.7%;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: #727272;
+}
+@media (max-width: 600px) {
+  .swiper-slide_breadcrumbs {
+    top: 107px;
+    left: 16px;
   }
 }
 
