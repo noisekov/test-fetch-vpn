@@ -17,7 +17,7 @@ likeBtn.addEventListener('click', function(){
 })
 
 //save like count
-// document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function(){
     if (localStorage.getItem('likeCount', 'result')) {
         likeCounter.innerHTML = localStorage.getItem('likeCount', 'result');
         likeBtn.setAttribute('disabled','');
