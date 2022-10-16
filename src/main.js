@@ -8,7 +8,6 @@ const swiper = new Swiper('.swiper', {
     direction: 'horizontal',
 
     speed: 1500,
-    // spaceBetween: 100,
 
     // Navigation arrows
     navigation: {
@@ -45,6 +44,10 @@ const imgForSwiper1 = document.querySelector('.swiper-slide__img-first img');
 const imgForSwiper2 = document.querySelector('.swiper-slide__img-second img');
 const imgForSwiper3 = document.querySelector('.swiper-slide__img-third img');
 
+const swiperBreadCrumbs = document.querySelectorAll('.swiper-slide_breadcrumbs');
+
+const swiperName = document.querySelectorAll('.swiper-slide__name');
+
 request()
   .then(result => {
     //parse img 
@@ -52,13 +55,33 @@ request()
     imgForSwiper2.src = result[0][1];
     imgForSwiper3.src = result[0][2];
     //parse title into modalWindow
-    modalTitle.innerHTML = result[1][0];
-    //parse description into modalWindow
-    modalText.innerHTML = result[2][0];
-    //parse like count
-    likeCounter.innerHTML = result[3][0];
+    swiperName.forEach(nameSlider => {
+      if (nameSlider.outerText === 'THE RAZORITE') {
+        modalTitle.innerHTML = result[1][0];
+        //parse description into modalWindow
+        modalText.innerHTML = result[2][0];
+        //parse like count
+        likeCounter.innerHTML = result[3][0];
+      }
+      // if (nameSlider.outerText === '02') {
+      //   modalTitle.innerHTML = result[1][1];
+      //   //parse description into modalWindow
+      //   modalText.innerHTML = result[2][1];
+      //   //parse like count
+      //   likeCounter.innerHTML = result[3][1];
+      // }
+    })
   })
 
-  .catch(err => {console.log("server err")});
-
-
+  .catch(err => {
+    console.log("server err")
+    swiperName.forEach(nameSlider => {
+      nameSlider.innerHTML = '02';
+    })
+    swiperBreadCrumbs.forEach(breadCrumbs => {
+      breadCrumbs.innerHTML = '/\///\///\///\///\///\///\/';
+    })
+    likeCounter.innerHTML = '330';
+    modalTitle.innerHTML = 'BMW i8';
+    modalText.innerHTML = 'Тут должен быть слайд. Но его нет. Вероятно у вас не включен VPN и данные не подгружаются с сервера.';
+  });

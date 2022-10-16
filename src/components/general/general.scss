@@ -6,14 +6,6 @@
     bottom: 0;
     background: #CFCFCF;
 }
-.container {
-    padding-left: 64px;
-    padding-right: 64px;
-    @media (max-width:600px) {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-}
 .general__header {
     height: 187px;
     display: flex;
@@ -63,6 +55,7 @@
     letter-spacing: -0.05em;
     text-transform: uppercase;
     margin-top: 37px;
+    color: #727272;
     @media (max-width:600px) {
         margin-top: 20px;
     }
