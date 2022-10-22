@@ -247,12 +247,12 @@ likeBtn.addEventListener('click', function () {
   likeCounter.innerHTML = result;
   localStorage.setItem('likeCount', result);
 }); //save like count
-document.addEventListener('DOMContentLoaded', function(){
-    if (localStorage.getItem('likeCount', 'result')) {
-        likeCounter.innerHTML = localStorage.getItem('likeCount', 'result');
-        likeBtn.setAttribute('disabled','');
-    }
-})
+// document.addEventListener('DOMContentLoaded', function(){
+//     if (localStorage.getItem('likeCount', 'result')) {
+//         likeCounter.innerHTML = localStorage.getItem('likeCount', 'result');
+//         likeBtn.setAttribute('disabled','');
+//     }
+// })
 },{"../modal/modal":"components/modal/modal.js"}],"main.js":[function(require,module,exports) {
 "use strict";
 
