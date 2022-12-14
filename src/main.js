@@ -18,7 +18,7 @@ const swiper = new Swiper('.swiper', {
   });
 
 async function request() {
-    let response = await fetch("https://private-anon-d93a744d8e-grchhtml.apiary-mock.com/slides?offset=0&limit=3")
+    let response = await fetch("https://private-anon-4e97eeac8c-grchhtml.apiary-mock.com/slides")
     let result = await response.json();
     let data = result.data;
     let getImg = [];
@@ -63,13 +63,6 @@ request()
         //parse like count
         likeCounter.innerHTML = result[3][0];
       }
-      // if (nameSlider.outerText === '02') {
-      //   modalTitle.innerHTML = result[1][1];
-      //   //parse description into modalWindow
-      //   modalText.innerHTML = result[2][1];
-      //   //parse like count
-      //   likeCounter.innerHTML = result[3][1];
-      // }
     })
   })
 
